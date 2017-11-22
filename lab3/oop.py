@@ -29,3 +29,6 @@ class Person(object):
         print("my name is " + self.name)
 person1 = Person("Shikma", "14", "female", "brown", "avocado")
 person1.name1()
+
+class Song(object):
+    
