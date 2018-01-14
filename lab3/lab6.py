@@ -29,8 +29,8 @@ class Ball(Turtle):
 		currenty=self.ycor()
 		self.goto(currentx+self.dx, currenty+self.dy)
 
-ball = Ball(20,"blue",100,102,10,6)
-ball1 = Ball(50,"pink",60,49,5,9)
+ball = Ball(2,"black",30,12,1,6)
+ball1 = Ball(50,"pink",60,49,2,9)
 ball.goto(100,4)
 def check_collision(ball,ball1):
 	x1=ball.xcor()
@@ -45,8 +45,9 @@ def check_collision(ball,ball1):
 		random_color(ball)
 		random_color(ball1)
 		if ball.radius>ball1.radius:
-			
+			print("the balld collide")
 			check_collision(ball,ball1)
+
 
 while True:
 	ball.Move()
@@ -80,29 +81,29 @@ while True:
 		quit()
 
 
-	#change to ball1 if ball1.radius + ball1.xcor() > width:
+	if ball1.radius + ball1.xcor() > width:
 		print("the ball got to the edge")
 		quit()
-	if ball.radius + ball.xcor() > hight:
+	if ball1.radius + ball1.xcor() > hight:
 		print("the ball got to the edge")
 		quit()
-	if ball.radius + ball.xcor() == width:
+	if ball1.radius + ball1.xcor() == width:
 		print("the ball got to the edge")
 		quit()
-	if ball.radius + ball.xcor() == hight:
+	if ball1.radius + ball1.xcor() == hight:
 		print("the ball got to the edge")
 		quit()
 
-	if ball.radius + ball.ycor() > width:
+	if ball1.radius + ball1.ycor() > width:
 		print("the ball got to the edge")
 		quit()
-	if ball.radius + ball.ycor() > hight:
+	if ball1.radius + ball1.ycor() > hight:
 		print("the ball got to the edge")
 		quit()
-	if ball.radius + ball.ycor() == width:
+	if ball1.radius + ball1.ycor() == width:
 		print("the ball got to the edge")
 		quit()
-	if ball.radius + ball.ycor() == hight:
+	if ball1.radius + ball1.ycor() == hight:
 		print("the ball got to the edge")
 		quit()
 
