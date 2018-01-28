@@ -33,8 +33,14 @@ class Ball(Turtle):
         top_side_ball= new_y+ self.radius
         bottom_side_ball= new_y- self.radius
         self.goto(new_x,new_y)
-        if (right_side_ball>=screen_width or left_side_ball>=screen_width)
-        if (top_side_ball>=screen_height or bottom_side_ball<=screen_height)
+        if (right_side_ball>=screen_width or left_side_ball>=screen_width):
+            self.dx=-self.dx
+        if (top_side_ball>=screen_height or bottom_side_ball<=screen_height):
+            self.dy=-self.dy
+ball=Ball(20,"red",30,12,1,7)
+ball.Move(400,300)
+mainloop()
+        
 
 
 
