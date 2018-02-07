@@ -6,7 +6,7 @@ from personalproject import Ball
 import math
 tracer(0)
 hideturtle()
-
+bgcolor("red")
 SCREEN_WIDTH = int(turtle.getcanvas().winfo_width()/2)
 SCREEN_HEIGHT = int(turtle.getcanvas().winfo_height()/2)
 
@@ -20,10 +20,9 @@ MAXIMUM_BALL_DX=4
 MINIMUM_BALL_DY=-2
 MAXIMUM_BALL_DY=2
 
+
+
 My_Ball = Ball(17,"blue", 0,0,0,0)
-
-
-
 
 
 def random_color(self):
@@ -113,6 +112,9 @@ def check_myball_collision():
             new_radius=My_Ball.radius+1
             new_radius2=Ball1.radius
             if My_Ball.radius < Ball1.radius:
+                turtle.write("you lost...",font = ("Arial",20,"normal"))
+                time.sleep(4)
+                quit()
                 return False
             else:
                 My_Ball.radius = new_radius+1
@@ -124,8 +126,9 @@ def check_myball_collision():
                 Ball1.radius=radius3
                 Ball1.shapesize(Ball1.radius/10)
                 print(My_Ball.radius)
-                
-    return True
+    return True           
+
+
 def movearound(event):
     My_Ball.x=event.x- SCREEN_WIDTH
     My_Ball.y=SCREEN_HEIGHT -event.y
@@ -135,18 +138,23 @@ turtle.getcanvas().bind("<Motion>", movearound)
 getscreen().listen()
 
 
+
+
 while RUNNING :
     print("running = true")
     if SCREEN_WIDTH != turtle.getcanvas().winfo_width()/2 or SCREEN_HEIGHT != turtle.getcanvas().winfo_height()/2:
-    
         SCREEN_WIDTH= int(turtle.getcanvas().winfo_width()/2)
         SCREEN_HEIGHT= int(turtle.getcanvas().winfo_height()/2)
+
+    if My_Ball.radius>MAXIMUM_BALL_RADIUS:
+        turtle.write("you won the game! good job",font = ("Arial",18,"normal"))
+        time.sleep(4)
+        quit()
     move_all_balls()
     check_all_balls_collision()
     RUNNING= check_myball_collision()
     turtle.getscreen().update()
     time.sleep(SLEEP)
-
 
 
 mainloop()
